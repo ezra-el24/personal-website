@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ralph Jezrael M. Salgado | Pink Aesthetic Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pink: {
+                            50: '#fff0f6',
+                            100: '#ffdeeb',
+                            200: '#fcc2d7',
+                            300: '#faa2c1',
+                            400: '#f783ac',
+                            500: '#f06595',
+                            600: '#e64980',
+                            700: '#d6336c',
+                            800: '#c2255c',
+                            900: '#a61e4d',
+                        }
+                    },
+                    fontFamily: {
+                        'sans': ['"DM Sans"', 'sans-serif'],
+                        'serif': ['"Playfair Display"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: #fff0f6;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        .profile-image {
+            width: 280px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 8px solid white;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .decorative-circle {
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgba(255, 222, 235, 0.6);
+            z-index: -1;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #f06595;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .active::after {
+            width: 100%;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            color: #a61e4d;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            bottom: -10px;
+            left: 25%;
+            background-color: #f783ac;
+        }
+        
+        .service-card {
+            transition: all 0.3s ease;
+            background-color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-input {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            border: 2px solid #fcc2d7;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-input:focus {
+            border-color: #f783ac;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(240, 101, 149, 0.2);
+        }
+        
+        .floating-btn {
+            animation: float 3s ease-in-out infinite;
+            background: linear-gradient(135deg, #f06595, #e64980);
+            box-shadow: 0 10px 20px rgba(240, 101, 149, 0.3);
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .sticker {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            opacity: 0.9;
+        }
+        
+        .sticker-1 {
+            width: 80px;
+            height: 80px;
+            top: 15%;
+            left: 5%;
+            transform: rotate(-15deg);
+        }
+        
+        .sticker-2 {
+            width: 60px;
+            height: 60px;
+            bottom: 20%;
+            right: 8%;
+            transform: rotate(10deg);
+        }
+        
+        .sticker-3 {
+            width: 70px;
+            height: 70px;
+            top: 30%;
+            right: 10%;
+            transform: rotate(5deg);
+        }
+        
+        .flower-decoration {
+            position: absolute;
+            opacity: 0.3;
+            z-index: -1;
+        }
+        
+        .hero-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f783ac' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: -1;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #ffdeeb;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #f783ac;
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f06595;
+        }
+        
+        .pink-btn {
+            background: linear-gradient(135deg, #f06595, #e64980);
+            color: white;
+            border: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(240, 101, 149, 0.2);
+        }
+        
+        .pink-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(240, 101, 149, 0.3);
+        }
+        
+        .outline-btn {
+            border: 2px solid #f06595;
+            color: #f06595;
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .outline-btn:hover {
+            background-color: #f06595;
+            color: white;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #f06595;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-3px);
+            background-color: #f06595;
+            color: white;
+        }
+        
+        .mobile-menu {
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .mobile-menu a {
+            padding: 12px 20px;
+            display: block;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu a:hover {
+            background-color: #fff0f6;
+            color: #f06595;
+        }
+
+        .animate-spin-slow {
+            animation: spin 20s linear infinite;
+        }
+        
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .animate-spin-slow-reverse {
+            animation: spin-reverse 25s linear infinite;
+        }
+        
+        @keyframes spin-reverse {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(-360deg);
+            }
+        }
+    </style>
+</head>
+<body class="relative">
+    <!-- Decorative elements -->
+    <div class="decorative-circle w-64 h-64 -left-32 -top-32"></div>
+    <div class="decorative-circle w-96 h-96 -right-48 bottom-1/3"></div>
+    
+    <!-- Flower decorations with placeholder images from placeholder.com -->
+    <img src="https://via.placeholder.com/400x400/fcc2d7/ffffff?text=🌸" alt="Flower decoration" class="flower-decoration w-40 top-1/4 left-10 rotate-12">
+    <img src="https://via.placeholder.com/400x400/fcc2d7/ffffff?text=🌸" alt="Flower decoration" class="flower-decoration w-32 bottom-1/4 right-12 -rotate-12">
+    
+    <div class="sticker sticker-1">
+        <i class="fas fa-heart text-3xl text-pink-400"></i>
+    </div>
+    <div class="sticker sticker-2">
+        <i class="fas fa-star text-2xl text-pink-400"></i>
+    </div>
+    <div class="sticker sticker-3">
+        <i class="fas fa-cloud text-3xl text-pink-400"></i>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="bg-white/80 backdrop-blur-md fixed w-full z-10 shadow-sm">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold text-pink-600">RALPHJMS</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link active text-pink-600">Home</a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-pink-600">About</a>
+                    <a href="#services" class="nav-link text-gray-700 hover:text-pink-600">Services</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-pink-600">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="menu-btn" class="focus:outline-none text-pink-600">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden absolute top-20 right-6 w-56 mobile-menu">
+            <a href="#home" class="text-pink-600">Home</a>
+            <a href="#about" class="text-gray-700">About</a>
+            <a href="#services" class="text-gray-700">Services</a>
+            <a href="#contact" class="text-gray-700">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 px-6 relative overflow-hidden">
+        <div class="hero-pattern"></div>
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between relative z-10">
+            <div class="md:w-1/2 mb-12 md:mb-0">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 text-pink-800">Hi, I'm <span class="text-pink-600">Ralph Jezrael</span></h1>
+                <h2 class="text-3xl md:text-4xl font-medium text-pink-500 mb-8">IT Student & Creative Professional</h2>
+                <p class="text-lg text-gray-700 mb-8 max-w-lg">
+                    Passionate about technology and design, creating innovative solutions that make an impact with a touch of pink aesthetic.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#contact" class="px-8 py-3 rounded-lg pink-btn">Contact Me</a>
+                    <a href="#services" class="px-8 py-3 rounded-lg outline-btn">My Services</a>
+                </div>
+                
+                <div class="mt-12 flex space-x-4">
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center relative">
+                <!-- Profile image with decorative frame (using placeholder image) -->
+                <div class="relative">
+                    <img src="https://via.placeholder.com/500x500/fcc2d7/ffffff?text=RJMS" 
+                          alt="Ralph Jezrael M. Salgado" 
+                          class="profile-image">
+                    <div class="absolute -inset-4 border-4 border-pink-200 rounded-full opacity-70 animate-spin-slow"></div>
+                    <div class="absolute -inset-6 border-4 border-pink-100 rounded-full opacity-50 animate-spin-slow-reverse"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6 bg-white relative overflow-hidden">
+        <div class="max-w-6xl mx-auto text-center relative z-10">
+            <h2 class="text-4xl font-bold mb-4 section-title">About Me</h2>
+            <p class="text-gray-700 mb-12 max-w-3xl mx-auto text-lg">
+                I am an IT student passionate about leveraging technology to create innovative solutions. 
+                With expertise in web development, design, and video editing, I bring ideas to life through 
+                creative and technical skills with a pink aesthetic twist.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                <div class="bg-pink-50 p-8 rounded-2xl">
+                    <div class="text-pink-500 text-4xl mb-4">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-pink-700">Education</h3>
+                    <p class="text-gray-700">
+                        Currently pursuing my degree in Information Technology at GRC, focusing on web development and design principles with a love for aesthetic design.
+                    </p>
+                </div>
+                <div class="bg-pink-50 p-8 rounded-2xl">
+                    <div class="text-pink-500 text-4xl mb-4">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-pink-700">Experience</h3>
+                    <p class="text-gray-700">
+                        Freelance designer and developer with experience creating websites, graphics, and video content for various clients, always with a stylish touch.
+                    </p>
+                </div>
+                <div class="bg-pink-50 p-8 rounded-2xl">
+                    <div class="text-pink-500 text-4xl mb-4">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-pink-700">Skills</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-white px-4 py-2 rounded-full text-pink-600 shadow-sm">HTML/CSS</span>
+                        <span class="bg-white px-4 py-2 rounded-full text-pink-600 shadow-sm">JavaScript</span>
+                        <span class="bg-white px-4 py-2 rounded-full text-pink-600 shadow-sm">Adobe CC</span>
+                        <span class="bg-white px-4 py-2 rounded-full text-pink-600 shadow-sm">UI/UX</span>
+                        <span class="bg-white px-4 py-2 rounded-full text-pink-600 shadow-sm">React</span>
+                        <span class="bg-white px-4 py-2 rounded-full text-pink-600 shadow-sm">Tailwind</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 px-6 bg-pink-50 relative overflow-hidden">
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 section-title">My Services</h2>
+                <p class="text-gray-700 max-w-2xl mx-auto text-lg">
+                    I offer a range of services to help bring your digital ideas to life with quality, creativity, and plenty of pink aesthetic.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Web Development -->
+                <div class="service-card">
+                    <div class="h-48 bg-gradient-to-r from-pink-400 to-pink-600 flex items-center justify-center">
+                        <i class="fas fa-laptop-code text-white text-6xl"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-semibold mb-4 text-pink-700">Web Development</h3>
+                        <p class="text-gray-700 mb-6">
+                            Custom website development tailored to your needs, built with modern technologies for optimal performance and beautiful aesthetics.
+                        </p>
+                        <a href="#" class="font-medium flex items-center text-pink-600 hover:text-pink-800">
+                            Learn more <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Graphic Design -->
+                <div class="service-card">
+                    <div class="h-48 bg-gradient_to-r from-pink-300 to-pink-500 flex items-center justify-center">
+                        <i class="fas fa-palette text-white text-6xl"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-semibold mb-4 text-pink-700">Graphic Design</h3>
+                        <p class="text-gray_700 mb-6">
+                            Creative visual solutions including logos, branding, social media graphics, and print materials with a stylish aesthetic.
+                        </p>
+                        <a href="#" class="font-medium flex items-center text-pink-600 hover:text-pink-800">
+                            Learn more <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Video Editing -->
+                <div class="service-card">
+                    <div class="h-48 bg-gradient-to-r from-pink-500 to-pink-700 flex items-center justify-center">
+                        <i class="fas fa-video text-white text-6xl"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-semibold mb-4 text-pink-700">Video Editing</h3>
+                        <p class="text-gray-700 mb-6">
+                            Professional video editing services to enhance your content with effects, transitions, color grading and aesthetic touches.
+                        </p>
+                        <a href="#" class="font-medium flex items-center text-pink-600 hover:text-pink-800">
+                            Learn more <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 bg-white relative overflow-hidden">
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 section-title">Get In Touch</h2>
+                <p class="text-gray-700 max-w-2xl mx-auto text-lg">
+                    Have a project in mind or want to collaborate? Feel free to reach out - let's create something beautiful together!
+                </p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row gap-12">
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl font-semibold mb-6 text-pink-700">Contact Information</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start bg-pink-50 p-6 rounded-xl">
+                            <div class="mr-4 mt-1 text-pink-500 text-xl">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-700">Email</h4>
+                                <a href="mailto:ralphsalgado4@gmail.com" class="text-pink-600 hover:text-pink-800">ralphsalgado4@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start bg-pink-50 p-6 rounded-xl">
+                            <div class="mr-4 mt-1 text-pink-500 text-xl">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-700">Phone</h4>
+                                <a href="tel:+639564908297" class="text-pink-600 hover:text-pink-800">+63 956 490 8297</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start bg-pink-50 p-6 rounded-xl">
+                            <div class="mr-4 mt-1 text-pink-500 text-xl">
+                                <i class="fab fa-facebook"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-700">Facebook</h4>
+                                <a href="https://www.facebook.com/ralphjezrael.salgado" target="_blank" class="text-pink-600 hover:text-pink-800">Ralp Jezrael M. Salgado</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <form class="bg-pink-50 p-8 rounded-2xl" id="contact-form">
+                        <div class="mb-6">
+                            <label for="name" class="block text-gray-700 mb-2">Your Name</label>
+                            <input type="text" id="name" placeholder="Enter your name" class="w-full px-4 py-3 contact-input focus:outline-none rounded-lg" required>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="email" class="block text-gray-700 mb-2">Your Email</label>
+                            <input type="email" id="email" placeholder="Enter your email" class="w-full px-4 py-3 contact-input focus:outline-none rounded-lg" required>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 mb-2">Your Message</label>
+                            <textarea id="message" placeholder="Enter your message" rows="5" class="w-full px-4 py-3 contact-input focus:outline-none rounded-lg" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full pink-btn py-4 px-6 text-lg">
+                            Send Message <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-pink-800 text-white py-12 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0 text-center md:text-left">
+                    <div class="text-2xl font-bold mb-2">RALPHJMS</div>
+                    <p class="text-pink-200">IT Student & Creative Professional</p>
+                </div>
+                
+                <div class="flex space-x-6 mb-6 md:mb-0">
+                    <a href="#" class="text-pink-200 hover:text-white text-xl">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-pink-200 hover:text-white text-xl">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-pink-200 hover:text-white text-xl">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-pink-200 hover:text-white text-xl">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+                
+                <div class="text-pink-200 text-center md:text-right">
+                    &copy; 2023 Ralph Jezrael M. Salgado. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Contact Button -->
+    <a href="#contact" class="fixed bottom-8 right-8 w-16 h-16 rounded-full flex items-center justify-center shadow-lg floating-btn text-white text-2xl z-50">
+        <i class="fas fa-paper-plane"></i>
+    </a>
+
+    <!-- Success notification -->
+    <div id="success-notification" class="fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg hidden z-50">
+        Message sent successfully!
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Highlight active navigation link
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= (sectionTop - 300)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Add floating animation to decorative elements
+        const decorativeElements = document.querySelectorAll('.decorative-circle, .flower-decoration');
+        
+        decorativeElements.forEach((el, index) => {
+            // Random delay between 0-5s
+            const delay = Math.random() * 5;
+            // Random duration between 5-10s
+            const duration = 5 + Math.random() * 5;
+            // Random floating distance between 20-50px
+            const distance = 20 + Math.random() * 30;
+            
+            el.style.animation = `float ${duration}s ease-in-out ${delay}s infinite alternate`;
+            el.style.setProperty('--float-distance', `${distance}px`);
+        });
+        
+        // Add custom property for floating distance
+        document.styleSheets[0].insertRule(
+            `@keyframes float {
+                 0% { transform: translateY(0); }
+                 100% { transform: translateY(var(--float-distance, 30px)); }
+             }`
+        , 0);
+
+        // Contact form submission
+        const contactForm = document.getElementById('contact-form');
+        const successNotification = document.getElementById('success-notification');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Here you would normally send the form data to a server
+            // For demonstration, we'll just show a success message
+            
+            // Reset form
+            contactForm.reset();
+            
+            // Show success message
+            successNotification.classList.remove('hidden');
+            setTimeout(() => {
+                successNotification.classList.add('hidden');
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
